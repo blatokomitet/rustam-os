@@ -27,3 +27,21 @@ test('live mobile: navigation, tasks, persistence, deletion and console', async 
   }
   expect(errors).toEqual([]);
 });
+
+
+test('desktop: main sections, finance and viewport', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(baseURL, { waitUntil: 'networkidle' });
+  await expect(page.getByRole('heading', { name: 'Моя система развития' })).toBeVisible();
+  await expect(page.getByText('ПЕРСОНАЛЬНЫЙ ПРОГРЕСС')).toBeVisible();
+  await page.getByRole('button', { name: 'Финансы', exact: true }).click();
+  await expect(page.getByText('Баланс: 2 550 zł')).toBeVisible();
+  await page.getByRole('button', { name: 'Направления', exact: true }).click();
+  await expect(page.locator('.directions > div')).toHaveCount(6);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  expect(errors).toEqual([]);
+  await context.close();
+});

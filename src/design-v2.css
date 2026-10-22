@@ -1,0 +1,36 @@
+/* RUSTAM OS 2.0 — mobile-first premium productivity layer */
+:root{color-scheme:dark;--canvas:#090b10;--panel:#1a1e29;--line:#303744;--highlight:#a3e635;--mint:#a3e635;--accent:#a3e635;--text:#f5f7fa;--muted:#939baa;--radius:20px}
+body{background:#090b10;color:#f5f7fa;font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+aside{background:#101319;border-color:#262d36}
+.logo em,.eyebrow{color:#a3e635}
+.logo:before{background:#a3e635;box-shadow:0 0 18px #a3e63540}
+aside nav button.selected{background:#a3e63516;border-color:#a3e63550;color:#eaffce}
+aside nav button.selected:before{background:#a3e635}
+header{background:#090b10bb;border-color:#262d36}
+.badge{background:#a3e63515;border-color:#a3e63555;color:#c9fa85}
+h1{letter-spacing:-.055em}
+.hero{background:radial-gradient(circle at 92% 12%,#a3e63527,transparent 42%),linear-gradient(135deg,#222b23,#141d1b 55%,#111820);border-color:#42543a;box-shadow:0 24px 64px #0006}
+.hero:after{color:#a3e63516}
+.hero small,.hero p{color:#c6d5c2}
+.track{background:#2d3830}
+.track div{background:linear-gradient(90deg,#a3e635,#5ee2b2)}
+.stats>div,.card{background:#161b23;border-color:#2d3540;box-shadow:0 12px 32px #0003}
+.stats>div:before{background:linear-gradient(90deg,#a3e635,transparent)}
+.stats small{color:#aeb8c4}
+.add input,.entry-form input,.entry-form select{background:#0e1219;border-color:#38414d}
+.add input:focus,.entry-form input:focus,.entry-form select:focus{border-color:#a3e635;box-shadow:0 0 0 3px #a3e63522}
+.add button,.card>button,.entry-form button{background:#a3e635;color:#10160a;box-shadow:none}
+.add button:hover,.card>button:hover,.entry-form button:hover{background:#c3f779}
+.task input{accent-color:#a3e635}
+.directions>div{background:#10151c;border-color:#303944}
+button:focus-visible,input:focus-visible{outline-color:#a3e635}
+@media(max-width:750px){
+ body{background:#090b10}
+ aside{background:#101319}
+ .hero{border-radius:24px}
+ .mobile-bottom{background:#11161bf5;border-color:#343e40}
+ .mobile-bottom button.selected{background:#a3e63520;border-color:#a3e63560;color:#c8ff8b}
+ .mobile-more-menu{background:#171d24;border-color:#46523e}
+ .mobile-more-menu button{background:#222a30;border-color:#3b4745}
+ .mobile-more-menu button.selected{background:#34482b;border-color:#a3e635}
+}

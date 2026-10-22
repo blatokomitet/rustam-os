@@ -204,7 +204,7 @@ function go(page){
     if(active)n.setAttribute("aria-current","page");else n.removeAttribute("aria-current");
   });
   if(location.hash!=="#"+target)history.replaceState(null,"","#"+target);
-  window.scrollTo({top:0,behavior:"instant"});
+  window.scrollTo({top:0,behavior:"auto"});
 }
 function editName(){
   const answer=prompt("Имя персонажа (максимум 32 символа):",state.name);

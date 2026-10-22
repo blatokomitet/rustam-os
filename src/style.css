@@ -2,3 +2,42 @@
 .mobile-bottom{display:none}
 button:focus-visible,input:focus-visible{outline:2px solid #b7aaff;outline-offset:3px}
 @media(max-width:750px){.content{padding-bottom:100px}.mobile-bottom{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:fixed;bottom:0;left:0;right:0;z-index:20;background:#101827;border-top:1px solid #36415b;padding:8px max(8px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));gap:4px}.mobile-bottom button{border:0;background:transparent;color:#aebbd2;border-radius:10px;padding:12px 2px;font-size:12px;white-space:nowrap}.mobile-bottom button.selected{background:#353365;color:#fff}}
+
+
+/* Rustam OS design foundation — responsive, accessible, reduced-motion aware */
+:root{color-scheme:dark;--surface:#151e30;--surface-raised:#1c2740;--border:#34415a;--text:#e7edf7;--muted:#aab8d0;--accent:#988aff;--radius:16px}
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button{transition:background-color .16s ease,color .16s ease,transform .16s ease}
+button:active{transform:scale(.98)}
+button:disabled{cursor:not-allowed;opacity:.55}
+nav button[aria-current="page"]{background:#25294b;color:#fff}
+.add input{min-height:44px;outline-offset:2px}
+.add input::placeholder{color:#aab8d0}
+.add button,.card>button{min-height:44px;font-weight:650}
+.add button:hover,.card>button:hover{background:#8879f6}
+.task{min-height:52px}
+.task label{min-width:0;flex:1;overflow-wrap:anywhere;cursor:pointer}
+.task input{flex-shrink:0}
+.remove{min-width:44px;min-height:44px;border-radius:10px}
+.remove:hover{background:#342c42;color:#fff}
+.stats>div,.card{box-shadow:0 8px 24px rgba(0,0,0,.08)}
+::selection{background:#5b4f9f;color:#fff}
+@media(max-width:750px){
+  .content{padding-top:26px}
+  .mobile-bottom button{min-height:48px;touch-action:manipulation}
+  .stats>div{min-width:0}
+  .hero h2{font-size:clamp(25px,7vw,32px)}
+  .add{align-items:stretch}
+  .add button{padding-inline:14px}
+}
+@media(max-width:360px){
+  .add{flex-wrap:wrap}
+  .add input{flex-basis:100%}
+  .add button{width:100%}
+  .stats{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}

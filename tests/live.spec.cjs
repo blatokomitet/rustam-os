@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const baseURL = process.env.RUSTAM_OS_URL || 'https://rustam-os.rustam-zhabrailov.workers.dev/';
+const baseURL = process.env.RUSTAM_OS_URL || 'http://127.0.0.1:4173';
 test.use({ baseURL, viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
 test('live mobile: navigation, tasks, persistence, deletion and console', async ({ page }) => {
   const errors = [];

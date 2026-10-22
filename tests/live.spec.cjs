@@ -48,7 +48,8 @@ test('desktop: main sections, finance and viewport', async ({ browser }) => {
 
 test('mobile habits: create, complete, persist and delete', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' });
-  await page.getByRole('navigation', { name: 'Быстрая навигация' }).getByRole('button', { name: 'Привычки' }).click();
+  await await expect(page.locator('aside nav').getByRole('button', { name: 'Привычки', exact: true })).toBeVisible({ timeout: 12000 });
+  await page.locator('aside nav').getByRole('button', { name: 'Привычки', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Привычки · сегодня' })).toBeVisible();
   const name = 'Привычка Playwright ' + Date.now();
   await page.getByRole('textbox', { name: 'Название новой привычки' }).fill(name);
@@ -56,7 +57,8 @@ test('mobile habits: create, complete, persist and delete', async ({ page }) => 
   const row = page.locator('.task').filter({ hasText: name });
   await row.getByRole('checkbox').check();
   await page.reload({ waitUntil: 'networkidle' });
-  await page.getByRole('navigation', { name: 'Быстрая навигация' }).getByRole('button', { name: 'Привычки' }).click();
+  await await expect(page.locator('aside nav').getByRole('button', { name: 'Привычки', exact: true })).toBeVisible({ timeout: 12000 });
+  await page.locator('aside nav').getByRole('button', { name: 'Привычки', exact: true }).click();
   await expect(page.locator('.task').filter({ hasText: name }).getByRole('checkbox')).toBeChecked();
   await page.getByRole('button', { name: 'Удалить привычку ' + name }).click();
   await expect(page.locator('.task').filter({ hasText: name })).toHaveCount(0);

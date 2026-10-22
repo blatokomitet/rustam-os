@@ -1,0 +1,1 @@
+export type Task={id:string;title:string;done:boolean};export const defaults:Task[]=[{id:'1',title:'Проверить план на неделю',done:false},{id:'2',title:'30 минут активности',done:true},{id:'3',title:'Обновить бюджет',done:false}];export const directions=['Здоровье','Знания','Карьера','Финансы','Отношения','Личные проекты'];

@@ -138,3 +138,11 @@ footer{color:#7886a0;letter-spacing:1.4px}
   .mobile-more-menu button.selected{background:#51457d;border-color:#8b7dc0}
 }
 @media(min-width:751px){.mobile-more-menu{display:none}}
+
+/* v3.1: enforce mobile navigation across earlier stylesheet rules */
+@media(max-width:750px){
+ .shell>aside>nav[aria-label="Разделы"]{display:none!important}
+ nav.mobile-bottom[aria-label="Быстрая навигация"]{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;grid-template-rows:1fr;align-items:stretch;gap:2px;overflow:visible;width:100%;margin:0;padding:8px max(6px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left))}
+ nav.mobile-bottom button{display:flex;justify-content:center;align-items:center;min-width:0;max-width:100%;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(10px,2.6vw,12px);padding:11px 2px;min-height:46px}
+ .mobile-more-menu{bottom:calc(74px + env(safe-area-inset-bottom))}
+}

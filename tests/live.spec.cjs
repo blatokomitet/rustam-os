@@ -48,7 +48,11 @@ test('desktop: main sections, finance and viewport', async ({ browser }) => {
 
 test('mobile habits: create, complete, persist and delete', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' });
-  await await expect(page.locator('aside nav').getByRole('button', { name: 'Привычки', exact: true })).toBeVisible({ timeout: 12000 });
+  const habitsTab = page.locator('aside nav').getByRole('button', { name: 'Привычки', exact: true });
+  if (await habitsTab.count() === 0) {
+    throw new Error('DEPLOYMENT MISMATCH: опубликованный Cloudflare не содержит вкладку «Привычки», которая есть в src/main.tsx ветки main. Проверьте Cloudflare Workers → rustam-os → Deployments и опубликуйте актуальный main.');
+  }
+  await expect(habitsTab).toBeVisible({ timeout: 12000 });
   await page.locator('aside nav').getByRole('button', { name: 'Привычки', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Привычки · сегодня' })).toBeVisible();
   const name = 'Привычка Playwright ' + Date.now();

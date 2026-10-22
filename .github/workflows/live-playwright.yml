@@ -1,0 +1,30 @@
+name: Live Playwright browser tests
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'tests/live.spec.cjs'
+      - '.github/workflows/live-playwright.yml'
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save @playwright/test@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test tests/live.spec.cjs --reporter=line
+        env:
+          RUSTAM_OS_URL: https://rustam-os.rustam-zhabrailov.workers.dev/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-results
+          path: test-results/
+          retention-days: 7

@@ -9,3 +9,4 @@ function App(){const[page,setPage]=useState('Обзор');const[tasks,setTasks]=
 {['Работа','Проекты','Календарь'].includes(page)&&<section className="card"><h2>{page}</h2><p>Демонстрационный экран. Реальные данные и сервер не подключены.</p></section>}
 {page==='Настройки'&&<section className="card"><h2>Данные демонстрации</h2><p>Задачи хранятся только в вашем браузере. Данные Replit не используются.</p><button onClick={()=>{if(confirm('Сбросить демонстрационные задачи?'))setTasks(defaults)}}>Сбросить задачи</button></section>}<footer>RUSTAM OS · CLOUDFLARE-READY DEMO · NO REPLIT CONNECTION</footer></div></main></div>}
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(()=>{/* Optional offline support; online demo still works. */});});}

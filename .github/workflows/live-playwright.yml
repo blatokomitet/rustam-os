@@ -1,4 +1,4 @@
-name: Live Playwright browser tests
+name: Playwright browser tests
 on:
   workflow_dispatch:
   schedule:
@@ -6,7 +6,9 @@ on:
   push:
     branches: [main]
     paths:
+      - 'src/**'
       - 'tests/live.spec.cjs'
+      - 'playwright.config.cjs'
       - '.github/workflows/live-playwright.yml'
 jobs:
   browser:
@@ -17,14 +19,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --no-save @playwright/test@1.56.1
-      - run: npx playwright install --with-deps chromium
-      - run: npx playwright test tests/live.spec.cjs --reporter=line
+      - name: Install dependencies
+        run: npm install
+      - name: Install Playwright
+        run: npm install --no-save @playwright/test@1.56.1 && npx playwright install --with-deps chromium
+      - name: Test app locally (deterministic)
+        run: npx playwright test --reporter=list
         env:
+          CI: 'true'
+      - name: Test published Cloudflare app (manual or scheduled)
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+        run: npx playwright test --reporter=list
+        env:
+          CI: 'true'
           RUSTAM_OS_URL: https://rustam-os.rustam-zhabrailov.workers.dev/
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-results
-          path: test-results/
+          name: playwright-debug
+          path: |
+            test-results/
+            playwright-report/
           retention-days: 7

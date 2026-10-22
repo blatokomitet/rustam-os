@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const baseURL = process.env.RUSTAM_OS_URL || 'https://rustam-os.rustam-zhabrailov.workers.dev/';
+const baseURL = process.env.RUSTAM_OS_URL || 'http://127.0.0.1:4173';
 test.use({ baseURL, viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
 test('live mobile: navigation, tasks, persistence, deletion and console', async ({ page }) => {
   const errors = [];
@@ -7,10 +7,10 @@ test('live mobile: navigation, tasks, persistence, deletion and console', async 
   await page.goto('/', { waitUntil: 'networkidle' });
   await expect(page.getByRole('heading', { name: 'Моя система развития' })).toBeVisible();
   await page.locator('aside nav').getByRole('button', { name: 'Задачи', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Задачи' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Задачи', level: 1 })).toBeVisible();
   const title = 'Playwright проверка ' + Date.now();
   await page.getByRole('textbox', { name: 'Название новой задачи' }).fill(title);
-  await page.getByRole('button', { name: 'Добавить' }).click();
+  await page.locator('.card .add').getByRole('button', { name: 'Добавить' }).click();
   const row = page.locator('.task').filter({ hasText: title });
   await expect(row).toBeVisible();
   await row.getByRole('checkbox').check();
@@ -23,7 +23,7 @@ test('live mobile: navigation, tasks, persistence, deletion and console', async 
   await expect(page.locator('.task').filter({ hasText: title })).toHaveCount(0);
   for (const tab of ['Направления','Работа','Финансы','Проекты','Календарь','Настройки','Обзор']) {
     await page.locator('aside nav').getByRole('button', { name: tab, exact: true }).click();
-    await expect(page.getByRole('heading', { name: tab === 'Обзор' ? 'Моя система развития' : tab })).toBeVisible();
+    await expect(page.getByRole('heading', { name: tab === 'Обзор' ? 'Моя система развития' : tab, level: 1 })).toBeVisible();
   }
   expect(errors).toEqual([]);
 });
@@ -52,7 +52,7 @@ test('mobile habits: create, complete, persist and delete', async ({ page }) => 
   await expect(page.getByRole('heading', { name: 'Привычки · сегодня' })).toBeVisible();
   const name = 'Привычка Playwright ' + Date.now();
   await page.getByRole('textbox', { name: 'Название новой привычки' }).fill(name);
-  await page.getByRole('button', { name: 'Добавить' }).click();
+  await page.locator('.card .add').getByRole('button', { name: 'Добавить' }).click();
   const row = page.locator('.task').filter({ hasText: name });
   await row.getByRole('checkbox').check();
   await page.reload({ waitUntil: 'networkidle' });

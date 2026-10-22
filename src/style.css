@@ -112,3 +112,29 @@ footer{color:#7886a0;letter-spacing:1.4px}
  .directions>div{padding:14px}
 }
 @media(max-width:360px){.hero h2{font-size:31px}.stats small{font-size:10px}}
+
+/* v3: mobile-first information density and single navigation */
+@media(max-width:750px){
+  aside nav{display:none}
+  aside{padding:14px 18px 12px}
+  .logo{padding:0;font-size:19px}
+  .content{padding-top:23px}
+  .subtitle{margin-bottom:18px}
+  .hero{padding:23px 20px;margin-bottom:12px}
+  .hero h2{font-size:33px;margin:12px 0}
+  .hero .track{margin:18px 0 10px}
+  .stats{gap:9px;margin-bottom:12px}
+  .stats>div{min-height:95px;padding:14px}
+  .stats b{margin-top:8px;font-size:27px}
+  .card{padding:19px 16px;margin-bottom:12px}
+  .card h2{margin-bottom:15px}
+  .card .subtitle{margin-bottom:13px}
+  .add{margin-bottom:12px}
+  .task{padding:11px 0}
+  .mobile-bottom{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .mobile-bottom button{font-size:11px;padding:10px 1px}
+  .mobile-more-menu{position:fixed;bottom:calc(76px + env(safe-area-inset-bottom));left:12px;right:12px;z-index:21;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:14px;background:#1b2033;border:1px solid #4b4668;border-radius:20px;box-shadow:0 15px 60px #0009}
+  .mobile-more-menu button{min-height:48px;background:#292e44;color:#f3f1ff;border:1px solid #3b415a;border-radius:12px;font-weight:650;text-align:left;padding:12px 15px}
+  .mobile-more-menu button.selected{background:#51457d;border-color:#8b7dc0}
+}
+@media(min-width:751px){.mobile-more-menu{display:none}}

@@ -146,3 +146,10 @@ footer{color:#7886a0;letter-spacing:1.4px}
  nav.mobile-bottom button{display:flex;justify-content:center;align-items:center;min-width:0;max-width:100%;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(10px,2.6vw,12px);padding:11px 2px;min-height:46px}
  .mobile-more-menu{bottom:calc(74px + env(safe-area-inset-bottom))}
 }
+
+/* Functional module entry forms */
+.entry-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0 24px}
+.entry-form input,.entry-form select{min-width:0;min-height:46px;padding:11px 14px;border-radius:12px;background:#0c1220;color:#f4f5ff;border:1px solid #414960;font:inherit}
+.entry-form button{min-height:46px;padding:10px 18px;background:#a898ff;color:#17132a;border:0;border-radius:12px;font-weight:750;cursor:pointer}
+.entry-form input:focus-visible,.entry-form select:focus-visible,.entry-form button:focus-visible{outline:2px solid #c6bcff;outline-offset:2px}
+@media(max-width:600px){.entry-form{grid-template-columns:1fr}}

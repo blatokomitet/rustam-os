@@ -1,0 +1,9 @@
+{
+  "name": "Rustam OS Demo",
+  "short_name": "Rustam OS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101827",
+  "theme_color": "#101827",
+  "lang": "ru"
+}

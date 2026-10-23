@@ -83,3 +83,47 @@ button:focus-visible,input:focus-visible{outline-color:#a3e635}
  .content{padding-top:21px}
 }
 @media(max-width:370px){.v2-greeting h2{font-size:29px}.v2-feature{padding:18px}.v2-metric{padding:13px}}
+
+
+/* RUSTAM OS — Home 3.0: action-first mobile home */
+.home3{max-width:1000px;margin:auto;padding-bottom:20px}
+.home3-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.home3-date{display:block;color:#a3e635;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.home3-top h1{font-size:clamp(32px,4vw,46px);letter-spacing:-.06em;margin:6px 0 4px;line-height:1.1}
+.home3-spark{color:#a3e635}.home3-top p{color:#96a1b1;margin:0;font-size:13px}
+.home3-profile{width:42px;height:42px;border-radius:50%;border:1px solid #5d8040;background:#253820;color:#b6f57a;font-size:18px;font-weight:850;flex-shrink:0}
+.home3-character{border:1px solid #314b34;border-radius:20px;padding:18px 20px;background:linear-gradient(115deg,#1e3928,#13251f 75%);margin-bottom:12px}
+.home3-character-head{display:flex;justify-content:space-between;gap:10px;font-size:10px;font-weight:850;letter-spacing:.09em;color:#b9e99c}
+.home3-character-body{display:flex;align-items:center;justify-content:space-between;margin:13px 0}
+.home3-character-body strong{font-size:37px;line-height:1;letter-spacing:-.06em}
+.home3-character-body strong small{font-size:14px;color:#c5d5bf}
+.home3-character-body p{font-size:12px;color:#aabbaa;margin:7px 0 0}
+.home3-character-mark{font-size:48px;color:#b1ed77;line-height:1}
+.home3-bar{height:5px;border-radius:9px;background:#0d1b14;overflow:hidden}
+.home3-bar div{height:100%;background:#a3e635;border-radius:9px}
+.home3-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.home3-kpis button{display:flex;flex-direction:column;align-items:flex-start;text-align:left;background:#171e26;color:#f5f7fa;border:1px solid #2a3540;border-radius:17px;padding:15px 17px}
+.home3-kpis button>span{color:#b4c1c9;font-size:10px;font-weight:800;letter-spacing:.08em}
+.home3-kpis strong{font-size:30px;letter-spacing:-.04em;margin:4px 0}
+.home3-kpis strong small{font-size:15px;color:#8c9ba9;font-weight:500}
+.home3-kpis em{font-size:11px;color:#a3e635;font-style:normal}
+.home3-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 11px}
+.home3-heading h2{margin:0;font-size:20px;letter-spacing:-.035em}
+.home3-heading button{background:transparent;border:0;color:#a3e635;font-size:12px;font-weight:700}
+.home3-muted{font-size:10px;letter-spacing:.08em;color:#8794a0}
+.home3-todos{background:#151b23;border:1px solid #2a3540;border-radius:17px;overflow:hidden}
+.home3-todo{display:flex;align-items:center;gap:12px;padding:14px 15px;border-bottom:1px solid #28313b;min-height:51px;font-size:13px}
+.home3-todo:last-child{border-bottom:0}
+.home3-todo input{width:18px;height:18px;accent-color:#a3e635;flex-shrink:0}
+.home3-todo span:nth-child(2){flex:1}.home3-done{text-decoration:line-through;color:#7c8b95}
+.home3-todo-end{color:#677985}.home3-empty{padding:15px;color:#9ca8b5}
+.home3-quickadd{display:flex;gap:8px;margin:10px 0 23px}
+.home3-quickadd input{min-width:0;flex:1;border-radius:12px;background:#151b23;border:1px solid #303b45;color:white;padding:12px 14px;font:inherit}
+.home3-quickadd button{width:44px;border:0;border-radius:12px;background:#a3e635;color:#15200e;font-size:27px;font-weight:600}
+.home3-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.home3-actions button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:5px;background:#171e26;color:#fff;border:1px solid #2a3540;border-radius:16px;padding:16px;text-align:left;min-height:118px}
+.home3-action-icon{color:#a3e635;font-size:24px;margin-bottom:6px}
+.home3-actions strong{font-size:13px}.home3-actions small{font-size:11px;color:#8e9caa}
+.home3-arrow{position:absolute;right:12px;top:12px;color:#83918e}
+.home3-note{color:#6f7d88;font-size:10px;text-align:center;margin-top:22px}
+@media(max-width:750px){.home3-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.home3-actions button{min-height:100px}.home3-top{margin-bottom:17px}.home3-character{padding:16px}.home3-kpis{margin-bottom:20px}.home3-character-body strong{font-size:33px}.home3-heading h2{font-size:19px}}

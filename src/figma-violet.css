@@ -1,0 +1,51 @@
+/* Figma node 1:3 — Today / Violet. Scoped to the home view. */
+:root{--violet-canvas:#14111f;--violet-surface:#211c31;--violet-raised:#2c2540;--violet-accent:#9565ff;--violet-text:#f5f2ff;--violet-muted:#b7acc9}
+body:has(.violet-home){background:var(--violet-canvas);color:var(--violet-text)}
+body:has(.violet-home) .shell{background:var(--violet-canvas)}
+body:has(.violet-home) .shell>aside{background:#181423;border-right-color:#302940}
+body:has(.violet-home) .shell>aside nav button.selected{background:#302445;color:#f5f2ff}
+body:has(.violet-home) .shell>main>header{background:#181423;border-color:#302940}
+body:has(.violet-home) .content{max-width:850px}
+.violet-home{max-width:390px;margin:0 auto;color:var(--violet-text);font-family:Inter,system-ui,sans-serif;font-size:13px;line-height:1.3}
+.violet-home button{font:inherit;color:inherit;border:0;cursor:pointer}
+.violet-header{height:48px;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;font-weight:600;letter-spacing:.02em}
+.violet-header button,.violet-focus button{width:48px;height:48px;border-radius:16px;background:var(--violet-surface);font-size:24px}
+.violet-profile{height:152px;padding:18px;border-radius:24px;background:linear-gradient(135deg,#3b235f,#20182e 77%);display:flex;flex-direction:column;gap:8px}
+.violet-identity{display:flex;align-items:center;gap:12px;height:48px}
+.violet-avatar{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border-radius:16px;background:var(--violet-accent);font-size:22px;font-weight:650}
+.violet-identity div,.violet-level span,.violet-shift>div,.violet-task>span{display:flex;flex-direction:column;gap:3px;min-width:0}
+.violet-home small{font-size:11px;color:var(--violet-muted);font-weight:400}
+.violet-home strong{font-weight:550}
+.violet-level{display:flex;align-items:center;justify-content:space-between;height:36px}
+.violet-level b{font-size:27px;font-weight:650}
+.violet-level span{text-align:right}
+.violet-progress{height:6px;border-radius:4px;background:var(--violet-raised);overflow:hidden}
+.violet-progress>div{height:100%;background:#ec8dd0;border-radius:4px}
+.violet-heading{height:50px;display:flex;justify-content:space-between;align-items:center}
+.violet-heading h1{font-size:22px;line-height:1.3;margin:0;letter-spacing:0}
+.violet-heading span{font-size:11px;color:var(--violet-muted)}
+.violet-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.violet-metrics button{height:98px;border-radius:20px;background:var(--violet-surface);padding:12px 16px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left}
+.violet-metrics strong{font-size:27px;font-weight:650;display:flex;justify-content:space-between;align-items:center;width:100%}
+.violet-metrics strong span{font-size:18px;font-weight:400}
+.violet-shift{height:72px;border-radius:20px;background:var(--violet-surface);display:flex;align-items:center;gap:12px;padding:12px 12px 12px 14px}
+.violet-work-icon{font-size:22px;width:22px;flex-shrink:0}
+.violet-shift>div{flex:1}
+.violet-shift>button{width:104px;height:48px;background:var(--violet-accent);border-radius:16px;font-weight:550}
+.violet-focus{height:58px;display:flex;align-items:center;justify-content:space-between}
+.violet-focus h2{font-size:13px;font-weight:550;margin:0}
+.violet-tasks{display:flex;flex-direction:column;gap:6px}
+.violet-task{min-height:58px;border-radius:16px;background:var(--violet-surface);display:flex;align-items:center;gap:12px;padding:10px 14px;cursor:pointer}
+.violet-task input{appearance:none;width:22px;height:22px;flex-shrink:0;border-radius:50%;border:2px solid #8f83a9;background:transparent;cursor:pointer}
+.violet-task input:checked{background:var(--violet-accent);border-color:var(--violet-accent);box-shadow:inset 0 0 0 5px var(--violet-surface)}
+.violet-task strong{font-size:13px}
+.violet-add{display:flex;gap:8px;margin:9px 0}
+.violet-add input{min-width:0;flex:1;height:40px;background:var(--violet-surface);border:1px solid #403650;border-radius:12px;padding:0 12px;color:var(--violet-text)}
+.violet-add button{background:var(--violet-accent);border-radius:12px;padding:0 14px}
+.violet-quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.violet-quick button{height:48px;background:var(--violet-raised);border-radius:14px;font-size:18px;display:flex;align-items:center;justify-content:center;gap:7px}
+.violet-quick button span{font-size:11px}
+.violet-disclaimer{text-align:center;font-size:10px;color:var(--violet-muted);margin:16px 0}
+.violet-home button:hover{filter:brightness(1.13)}
+@media(max-width:750px){body:has(.violet-home) .shell>aside,body:has(.violet-home) main>header{display:none}.violet-home{max-width:390px}.content:has(.violet-home){padding:24px 20px 105px!important}body:has(.violet-home) .mobile-bottom{background:#211c31;border-color:#382e4b}body:has(.violet-home) .mobile-bottom button.selected{background:#46335f;color:#f5f2ff;border-color:#7853a4}}
+@media(max-width:390px){.content:has(.violet-home){padding-left:14px!important;padding-right:14px!important}.violet-shift>button{width:88px}.violet-shift{gap:8px}}

@@ -23,7 +23,7 @@ test('live mobile: navigation, tasks, persistence, deletion and console', async 
   await expect(page.locator('.task').filter({ hasText: title })).toHaveCount(0);
   for (const tab of ['Направления','Работа','Финансы','Проекты','Календарь','Настройки','Обзор']) {
     await page.locator('aside nav').getByRole('button', { name: tab, exact: true }).click();
-    await expect(page.getByRole('heading', { name: tab === 'Обзор' ? /Держи курс/ : tab, level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: tab === 'Обзор' ? /Держи курс/ : tab, level: tab === 'Обзор' ? 2 : 1 })).toBeVisible();
   }
   expect(errors).toEqual([]);
 });

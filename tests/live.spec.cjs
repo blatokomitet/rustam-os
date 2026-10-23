@@ -5,7 +5,7 @@ test('mobile: five-screen navigation and task persistence',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/',{waitUntil:'networkidle'});
  await expect(page.getByRole('heading',{name:/Привет, Rustam/})).toBeVisible();
- await page.getByRole('button',{name:'Задача',exact:true}).click();
+ await page.locator('.os3-actions').getByRole('button',{name:/Задача/}).click();
  const title='Проверка '+Date.now();
  await page.getByPlaceholder('Название').fill(title);
  await page.getByRole('button',{name:'Сохранить'}).click();

@@ -1,3 +1,4 @@
+import Os3 from './Os3';
 import React,{useState,useEffect} from 'react';import{createRoot}from'react-dom/client';import{defaults,directions,type Task}from './data';import './style.css';import './design-v2.css';
 const key='rustam-os-demo-v1';
 const habitKey='rustam-os-habits-v1';
@@ -37,5 +38,5 @@ function App(){const[page,setPage]=useState('Обзор');const[mobileMenuOpen,s
 {(['Работа','Финансы','Проекты','Цели','Заметки','Календарь'] as string[]).includes(page)&&<SectionEditor key={page} section={page as Section}/>}
 
 {page==='Настройки'&&<section className="card"><h2>Данные демонстрации</h2><p>Все записи хранятся только в этом браузере. Синхронизация между устройствами и серверная авторизация пока не подключены.</p><button onClick={()=>{if(confirm('Сбросить демонстрационные задачи?'))setTasks(defaults)}}>Сбросить задачи</button></section>}<nav className="mobile-bottom" aria-label="Быстрая навигация">{['Обзор','Работа','Задачи','Финансы'].map(t=><button key={t} className={page===t?'selected':''} onClick={()=>{setMobileMenuOpen(false);setPage(t);window.scrollTo({top:0,behavior:'smooth'})}}>{t==='Обзор'?'Сегодня':t==='Задачи'?'План':t==='Финансы'?'Аналитика':t}</button>)}<button aria-label="Другие разделы" aria-expanded={mobileMenuOpen} aria-controls="mobile-more-menu" className={mobileMenuOpen||!['Обзор','Работа','Задачи','Финансы'].includes(page)?'selected':''} onClick={()=>setMobileMenuOpen(v=>!v)}>Профиль</button></nav>{mobileMenuOpen&&<div id="mobile-more-menu" className="mobile-more-menu" role="navigation" aria-label="Другие разделы">{['Привычки','Проекты','Цели','Заметки','Календарь','Направления','Настройки'].map(t=><button key={t} className={page===t?'selected':''} onClick={()=>{setPage(t);setMobileMenuOpen(false);window.scrollTo({top:0,behavior:'smooth'})}}>{t}</button>)}</div>}<footer>RUSTAM OS · CLOUDFLARE-READY DEMO · NO REPLIT CONNECTION</footer></div></main></div>}
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(<React.StrictMode><Os3/></React.StrictMode>);
 if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(()=>{/* Optional offline support; online demo still works. */});});}

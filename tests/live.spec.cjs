@@ -5,7 +5,7 @@ test('live mobile: navigation, tasks, persistence, deletion and console', async 
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/', { waitUntil: 'networkidle' });
-  await expect(page.getByRole('heading', { name: 'Моя система развития' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Мой день' })).toBeVisible();
   await page.locator('aside nav').getByRole('button', { name: 'Задачи', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Задачи', level: 1 })).toBeVisible();
   const title = 'Playwright проверка ' + Date.now();
@@ -23,7 +23,7 @@ test('live mobile: navigation, tasks, persistence, deletion and console', async 
   await expect(page.locator('.task').filter({ hasText: title })).toHaveCount(0);
   for (const tab of ['Направления','Работа','Финансы','Проекты','Календарь','Настройки','Обзор']) {
     await page.locator('aside nav').getByRole('button', { name: tab, exact: true }).click();
-    await expect(page.getByRole('heading', { name: tab === 'Обзор' ? 'Моя система развития' : tab, level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: tab === 'Обзор' ? 'Мой день' : tab, level: 1 })).toBeVisible();
   }
   expect(errors).toEqual([]);
 });
@@ -35,10 +35,10 @@ test('desktop: main sections, finance and viewport', async ({ browser }) => {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(baseURL, { waitUntil: 'networkidle' });
-  await expect(page.getByRole('heading', { name: 'Моя система развития' })).toBeVisible();
-  await expect(page.getByText('ПЕРСОНАЛЬНЫЙ ПРОГРЕСС')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Держи курс' })).toBeVisible();
+  await expect(page.getByText('✦ МОЙ ПРОГРЕСС')).toBeVisible();
   await page.locator('aside nav').getByRole('button', { name: 'Финансы', exact: true }).click();
-  await expect(page.getByText('Баланс: 2 550 zł')).toBeVisible();
+  await expect(page.getByText('Баланс: 0 zł')).toBeVisible();
   await page.locator('aside nav').getByRole('button', { name: 'Направления', exact: true }).click();
   await expect(page.locator('.directions > div')).toHaveCount(6);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

@@ -13,7 +13,7 @@ test('mobile: five-screen navigation and task persistence',async({page})=>{
  await page.reload({waitUntil:'networkidle'});
  await expect(page.getByText(title)).toBeVisible();
  for(const name of ['Работа','Финансы','План','Персонаж','Сегодня']){
-  await page.locator('.os3-nav').getByRole('button',{name:new RegExp(name+'
+  await page.locator('.os3-nav').getByRole('button',{name:new RegExp(name+'$')}).click();
   await expect(page.getByRole('heading',{name:name==='Сегодня'?/Привет, Rustam/:name,level:1})).toBeVisible();
  }
  expect(errors).toEqual([]);
